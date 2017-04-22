@@ -20,7 +20,8 @@ class GamesController < ApplicationController
 
     if @game.save
       ActionCable.server.broadcast 'games',
-        winner: @game.winner
+        winner: @game.winner,
+        stats: [Game.where(winner: "X").count, Game.where(winner: "O").count]
       render json: @game, status: :created, location: @game
     else
       render json: @game.errors, status: :unprocessable_entity

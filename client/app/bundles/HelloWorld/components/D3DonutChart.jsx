@@ -11,6 +11,19 @@ export default class D3DonutChart extends React.Component {
     this.state = { data: props.data };
   }
 
+  componentWillMount() {
+    var self = this;
+    if (typeof App !== 'undefined'){
+      App.messages = App.cable.subscriptions.create('GamesChannel', {  
+        received: function(data) {
+          console.log(this);
+          self.setState({ data: data.stats });
+          return $('#games').append("<p>" + data.winner + "</p>");
+        }
+      });
+    }
+  }
+
   randomData = (e) => {
     // var new_data = [ Math.random(), Math.random() ];
     // console.log(new_data);
@@ -75,6 +88,8 @@ export default class D3DonutChart extends React.Component {
             )}
           </g>
         </svg>
+        <p>X: {this.state.data[0]}</p>
+        <p>O: {this.state.data[1]}</p>
       </div>;
   }
 }

@@ -19,6 +19,8 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
 
     if @game.save
+      ActionCable.server.broadcast 'games',
+        winner: @game.winner
       render json: @game, status: :created, location: @game
     else
       render json: @game.errors, status: :unprocessable_entity

@@ -3,8 +3,8 @@ import ReactOnRails from 'react-on-rails';
 import Board from './Board';
 
 export default class Game extends React.Component {
-  constructor() {
-    super();
+  constructor(props, _railsContext) {
+    super(props);
     this.state = {
       history: [{
         squares: Array(9).fill("")

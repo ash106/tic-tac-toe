@@ -11,13 +11,6 @@ export default class D3DonutChart extends React.Component {
     this.state = { data: props.data };
   }
 
-  App.messages = App.cable.subscriptions.create('GamesChannel', {  
-    received: function(data) {
-      $("#games").removeClass('hidden')
-      return $('#games').append("<p>" + data.winner + "</p>");
-    }
-  });
-
   randomData = (e) => {
     // var new_data = [ Math.random(), Math.random() ];
     // console.log(new_data);

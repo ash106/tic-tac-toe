@@ -70,7 +70,7 @@ export default class D3DonutChart extends React.Component {
     return <div>
         <Container>
           <Row>
-            <Col md={{ size: 6, offset: 3 }}>
+            <Col md={{ size: 4, offset: 4 }}>
               <Card block>
                 <CardTitle className="text-center">Wins</CardTitle>
                 <CardText className="text-center">

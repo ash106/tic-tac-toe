@@ -7,12 +7,3 @@ const Square = (props, _railsContext) => (
 );
 
 export default Square;
-
-
-// function Square(props) {
-//   return (
-//     <button className="square" onClick={() => props.onClick()}>
-//       {props.value}
-//     </button>
-//   );
-// }

@@ -17,38 +17,11 @@ export default class D3DonutChart extends React.Component {
     if (typeof App !== 'undefined'){
       App.messages = App.cable.subscriptions.create('GamesChannel', {  
         received: function(data) {
-          console.log(this);
-          self.setState({ data: data.stats });
-          return $('#games').append("<p>" + data.winner + "</p>");
+          return self.setState({ data: data.stats });
         }
       });
     }
   }
-
-  randomData = (e) => {
-    // var new_data = [ Math.random(), Math.random() ];
-    // console.log(new_data);
-    // this.setState({ data: new_data });
-
-    fetch("/games", {
-        accept: 'application/json',
-      })
-    .then(res => { return res.json(); })
-    .then(j => {
-      // Yay, `j` is a JavaScript object
-      var new_data = [ 0, 0 ];
-      for(var i = 0; i < j.length; i++) {
-        if (j[i].winner === "X") {
-          new_data[0] += 1;
-        } else if (j[i].winner === "O") {
-          new_data[1] += 1;
-        }
-      } 
-      console.log("Fetched data " + new_data);
-      // this.setState({ stats });
-      this.setState({ data: new_data });
-    });
-  };
 
   render() {
     var width = 300,
@@ -74,7 +47,7 @@ export default class D3DonutChart extends React.Component {
               <Card block>
                 <CardTitle className="text-center">Wins</CardTitle>
                 <CardText className="text-center">
-                  <svg width={width} height={height} onClick={this.randomData}>
+                  <svg width={width} height={height}>
                     <g transform={"translate(" + width / 2 + "," + height / 2 + ")"}>
                       {displayedData.map((slice, i) =>
                         <Motion

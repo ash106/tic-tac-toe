@@ -7,7 +7,7 @@ export default class RestartButton extends React.Component {
       <p 
         className={"restart-button text-center " + visibilityClass}
         onClick={() => this.props.onClick()}>
-        <i className="fa fa-refresh fa-2x"></i>
+        <i className="fa fa-undo fa-2x"></i>
       </p>
     );
   }

@@ -65,18 +65,14 @@ export default class GameContainer extends React.Component {
     const current = this.state.history[this.state.stepNumber];
     const winner = this.calculateWinner(current.squares);
     if (winner) {
-      fetch("/games",
-      {
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-          method: "POST",
-          body: JSON.stringify({game: {winner: winner,  history:this.state.history}})
+      $.ajax({
+        url:'/games',
+        type:'POST',
+        dataType:'json',
+        data:{
+            game: {winner: winner,  history: this.state.history}
+        }
       });
-      // .then(function(res){ console.log(res) })
-      // .catch(function(res){ console.log(res) })
-      // console.log(JSON.stringify({game: {winner: winner, history:this.state.history}}))
     }
   }
   render() {

@@ -6,6 +6,7 @@ import Game from '../components/Game';
 import Board from '../components/Board';
 import Square from '../components/Square';
 import StatusLabel from '../components/StatusLabel';
+import RestartButton from '../components/RestartButton';
 
 // This is how react_on_rails can see the HelloWorld in the browser.
 ReactOnRails.register({
@@ -14,5 +15,6 @@ ReactOnRails.register({
   Game,
   Board,
   Square,
-  StatusLabel
+  StatusLabel,
+  RestartButton
 });

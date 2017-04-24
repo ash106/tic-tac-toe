@@ -11,13 +11,16 @@ export default class GameContainer extends React.Component {
       }],
       xIsNext: true,
       stepNumber: 0,
-      status: 'Next player: X'
+      status: 'Next player: X',
+      restartButtonVisible: false
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleRestart = this.handleRestart.bind(this);
   }
   handleClick(i) {
     const squares = this.currentSquares();
     let status;
+    let restartButtonVisible = this.state.restartButtonVisible;
     if (this.calculateWinner(squares) || squares[i]) {
       return;
     }
@@ -25,6 +28,7 @@ export default class GameContainer extends React.Component {
     const winner = this.calculateWinner(squares);
     if (winner) {
       status = 'Winner: ' + winner;
+      restartButtonVisible = true;
     } else {
       status = 'Next player: ' + (!this.state.xIsNext ? 'X' : 'O');
     }
@@ -34,7 +38,8 @@ export default class GameContainer extends React.Component {
       }]),
       xIsNext: !this.state.xIsNext,
       stepNumber: this.state.history.length,
-      status: status
+      status: status,
+      restartButtonVisible: restartButtonVisible
     });
   }
   currentSquares() {
@@ -61,6 +66,17 @@ export default class GameContainer extends React.Component {
     }
     return null;
   }
+  handleRestart() {
+    this.setState({
+      history: [{
+        squares: Array(9).fill("")
+      }],
+      xIsNext: true,
+      stepNumber: 0,
+      status: 'Next player: X',
+      restartButtonVisible: false
+    });
+  }
   componentDidUpdate(prevProps, prevState) {
     const current = this.state.history[this.state.stepNumber];
     const winner = this.calculateWinner(current.squares);
@@ -84,6 +100,8 @@ export default class GameContainer extends React.Component {
         stepNumber={this.state.stepNumber}
         xIsNext={this.state.xIsNext}
         squares={this.currentSquares()}
+        handleRestart={this.handleRestart}
+        restartButtonVisible={this.state.restartButtonVisible}
       />
     );
   }

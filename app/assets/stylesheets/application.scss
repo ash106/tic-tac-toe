@@ -1,8 +1,6 @@
-@import "bootstrap";
+$font-family-base: 'Quicksand', sans-serif;
 
-body {
-  font: 14px "Century Gothic", Futura, sans-serif;
-}
+@import "bootstrap";
 
 .board-row:after {
   clear: both;
@@ -15,11 +13,12 @@ body {
 }
 
 .square {
+  font-family: 'Quicksand', sans-serif;;
   background: #fff;
   border: 1px solid #999;
   float: left;
   font-size: 55px;
-  font-weight: bold;
+  font-weight: 500;
   line-height: 75px;
   height: 75px;
   margin-right: -1px;
@@ -52,4 +51,8 @@ body {
 
 .game-wrapper {
   padding-top: 200px;
+}
+
+.card-title {
+  text-transform: uppercase;
 }

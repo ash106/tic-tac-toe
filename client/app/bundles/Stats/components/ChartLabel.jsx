@@ -6,7 +6,7 @@ export default class ChartLabel extends React.Component {
     return (
       <Row>
         <Col sm="6" className="text-right">
-          <h3 className="x-label">{this.props.label}:</h3>
+          <h3 className={this.props.label.toLowerCase() + "-label"}>{this.props.label}:</h3>
         </Col>
         <Col sm="6">
           <h3>{this.props.data}</h3>

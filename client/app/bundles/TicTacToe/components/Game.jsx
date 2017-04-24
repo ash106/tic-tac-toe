@@ -9,7 +9,7 @@ export default class Game extends React.Component {
     return (
       <Container>
         <Row>
-          <Col className="game-wrapper">
+          <Col className="game-wrapper align-self-center">
             <div className="game justify-content-center">
               <div className="game-board">
                 <Board 

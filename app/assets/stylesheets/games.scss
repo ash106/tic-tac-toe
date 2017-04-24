@@ -43,6 +43,7 @@ ol, ul {
 .game {
   display: flex;
   flex-direction: row;
+  margin-bottom: 30px;
 }
 
 .game-info {
@@ -58,4 +59,8 @@ ol, ul {
 
 .o-label {
   color: #ff7f0e;
+}
+
+.game-wrapper {
+  padding-top: 200px;
 }

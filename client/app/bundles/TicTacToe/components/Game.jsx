@@ -9,14 +9,16 @@ export default class Game extends React.Component {
     return (
       <Container>
         <Row>
-          <Col md={{ size: 4, offset: 4 }}>
-            <StatusLabel status={this.props.status} />
-            <div className="game-board">
-              <Board 
-                squares={this.props.squares}
-                onClick={(i) => this.props.handleClick(i)}
-              />
+          <Col className="game-wrapper">
+            <div className="game justify-content-center">
+              <div className="game-board">
+                <Board 
+                  squares={this.props.squares}
+                  onClick={(i) => this.props.handleClick(i)}
+                />
+              </div>
             </div>
+            <StatusLabel status={this.props.status} />
           </Col>
         </Row>
       </Container>

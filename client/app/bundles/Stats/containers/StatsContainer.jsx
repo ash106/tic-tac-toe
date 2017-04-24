@@ -15,6 +15,7 @@ export default class StatsContainer extends React.Component {
     if (typeof App !== 'undefined'){
       App.messages = App.cable.subscriptions.create('GamesChannel', {  
         received: function(data) {
+          console.log("data received");
           return self.setState({ data: data.stats });
         }
       });

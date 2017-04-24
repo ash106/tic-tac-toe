@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Square = (props, _railsContext) => (
-  <button className="square" onClick={() => props.onClick()}>
+  <button className={"square " + props.highlightClass} onClick={() => props.onClick()}>
     {props.value}
   </button>
 );

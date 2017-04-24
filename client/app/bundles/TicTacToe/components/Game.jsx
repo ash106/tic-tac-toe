@@ -20,6 +20,7 @@ export default class Game extends React.Component {
                 <Board 
                   squares={this.props.squares}
                   onClick={(i) => this.props.handleClick(i)}
+                  line={this.props.line}
                 />
               </div>
             </div>

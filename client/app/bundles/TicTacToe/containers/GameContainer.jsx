@@ -12,7 +12,8 @@ export default class GameContainer extends React.Component {
       xIsNext: true,
       stepNumber: 0,
       status: 'Next player: X',
-      restartButtonVisible: false
+      restartButtonVisible: false,
+      line: [null, null, null]
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleRestart = this.handleRestart.bind(this);
@@ -21,13 +22,15 @@ export default class GameContainer extends React.Component {
     const squares = this.currentSquares();
     let status;
     let restartButtonVisible = this.state.restartButtonVisible;
-    if (this.calculateWinner(squares) || squares[i]) {
+    let line = this.state.line;
+    if (this.calculateWinner(squares).name || squares[i]) {
       return;
     }
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     const winner = this.calculateWinner(squares);
-    if (winner) {
-      status = 'Winner: ' + winner;
+    if (winner.name) {
+      line = winner.line;
+      status = 'Winner: ' + winner.name;
       restartButtonVisible = true;
     } else {
       status = 'Next player: ' + (!this.state.xIsNext ? 'X' : 'O');
@@ -39,7 +42,8 @@ export default class GameContainer extends React.Component {
       xIsNext: !this.state.xIsNext,
       stepNumber: this.state.history.length,
       status: status,
-      restartButtonVisible: restartButtonVisible
+      restartButtonVisible: restartButtonVisible,
+      line: line
     });
   }
   currentSquares() {
@@ -61,10 +65,10 @@ export default class GameContainer extends React.Component {
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-        return squares[a];
+        return { name: squares[a], line: lines[i] };
       }
     }
-    return null;
+    return { name: null, line: null };
   }
   handleRestart() {
     this.setState({
@@ -74,19 +78,20 @@ export default class GameContainer extends React.Component {
       xIsNext: true,
       stepNumber: 0,
       status: 'Next player: X',
-      restartButtonVisible: false
+      restartButtonVisible: false,
+      line: [null, null, null]
     });
   }
   componentDidUpdate(prevProps, prevState) {
     const current = this.state.history[this.state.stepNumber];
     const winner = this.calculateWinner(current.squares);
-    if (winner) {
+    if (winner.name) {
       $.ajax({
         url:'/games',
         type:'POST',
         dataType:'json',
         data:{
-            game: {winner: winner,  history: this.state.history}
+            game: {winner: winner.name,  history: this.state.history}
         }
       });
     }
@@ -102,6 +107,7 @@ export default class GameContainer extends React.Component {
         squares={this.currentSquares()}
         handleRestart={this.handleRestart}
         restartButtonVisible={this.state.restartButtonVisible}
+        line={this.state.line}
       />
     );
   }

@@ -61,8 +61,8 @@ export default class GameContainer extends React.Component {
     }
     return null;
   }
-  componentWillUpdate(nextProps, nextState) {
-    const current = nextState.history[nextState.stepNumber];
+  componentDidUpdate(prevProps, prevState) {
+    const current = this.state.history[this.state.stepNumber];
     const winner = this.calculateWinner(current.squares);
     if (winner) {
       fetch("/games",
@@ -72,11 +72,11 @@ export default class GameContainer extends React.Component {
             'Content-Type': 'application/json'
           },
           method: "POST",
-          body: JSON.stringify({game: {winner: winner,  history:nextState.history}})
+          body: JSON.stringify({game: {winner: winner,  history:this.state.history}})
       });
       // .then(function(res){ console.log(res) })
       // .catch(function(res){ console.log(res) })
-      // console.log(JSON.stringify({game: {winner: winner, history:nextState.history}}))
+      // console.log(JSON.stringify({game: {winner: winner, history:this.state.history}}))
     }
   }
   render() {

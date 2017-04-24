@@ -1,4 +1,4 @@
-$font-family-base: 'Quicksand', sans-serif;
+$font-family-base: 'Roboto', sans-serif;
 
 @import "bootstrap";
 @import "font-awesome";
@@ -18,11 +18,12 @@ html, body, .container, .full-height-component, .row {
 }
 
 .status {
+  font-weight: 300;
   margin-bottom: 10px;
 }
 
 .square {
-  font-family: 'Quicksand', sans-serif;;
+  font-family: 'Quicksand', sans-serif;
   background: #fff;
   border: 1px solid #999;
   float: left;
@@ -65,8 +66,18 @@ html, body, .container, .full-height-component, .row {
 .stats-label {
   text-transform: uppercase;
   margin-bottom: 0.75rem;
+  font-weight: 300;
 }
 
 .chart-wrapper {
   margin-bottom: 1rem;
+}
+
+.x-label, .o-label {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
+}
+
+.chart-label-num {
+  font-weight: 400;
 }

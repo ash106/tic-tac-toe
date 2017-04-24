@@ -4,8 +4,8 @@ import d3 from "d3";
 
 export default class D3DonutChart extends React.Component {
   render() {
-    var width = 300,
-        height = 300,
+    var width = 290,
+        height = 290,
         radius = Math.min(width, height) / 2;
     
     var color = d3.scale.category10();

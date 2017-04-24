@@ -1,8 +1,13 @@
 import ReactOnRails from 'react-on-rails';
 
+import StatsContainer from '../containers/StatsContainer';
+import Stats from '../components/Stats';
 import D3DonutChart from '../components/D3DonutChart';
+import ChartLabel from '../components/ChartLabel';
 
-// This is how react_on_rails can see the HelloWorld in the browser.
 ReactOnRails.register({
-  D3DonutChart
+  StatsContainer,
+  Stats,
+  D3DonutChart,
+  ChartLabel
 });

@@ -8,7 +8,7 @@ export default class Stats extends React.Component {
     return (
       <Container>
         <Row>
-          <Col md={{ size: 4, offset: 4 }} className="align-self-center">
+          <Col lg={{ size: 4, offset: 4 }} className="align-self-center">
             <h3 className="stats-label text-center">Wins</h3>
             <div className="chart-wrapper text-center">
               <D3DonutChart data={this.props.data} />

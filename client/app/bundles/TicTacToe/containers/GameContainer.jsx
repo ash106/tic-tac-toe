@@ -32,6 +32,9 @@ export default class GameContainer extends React.Component {
       line = winner.line;
       status = 'Winner: ' + winner.name;
       restartButtonVisible = true;
+    } else if (!squares.includes('')) {
+      status = 'Tie!';
+      restartButtonVisible = true;
     } else {
       status = 'Next player: ' + (!this.state.xIsNext ? 'X' : 'O');
     }

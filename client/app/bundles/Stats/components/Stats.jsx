@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Card, CardTitle, CardText } from 'reactstrap';
 import D3DonutChart from './D3DonutChart';
 import ChartLabel from './ChartLabel';
+import NavLink from '../../../lib/components/NavLink';
 
 export default class Stats extends React.Component {
   render() {
@@ -15,6 +16,7 @@ export default class Stats extends React.Component {
             </div>
             <ChartLabel label="X" data={this.props.data[0]} />
             <ChartLabel label="O" data={this.props.data[1]} />
+            <NavLink name="game" link="/" />
           </Col>
         </Row>
       </Container>

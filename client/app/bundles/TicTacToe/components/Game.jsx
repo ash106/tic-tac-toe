@@ -4,6 +4,7 @@ import { Container, Row, Col } from 'reactstrap';
 import Board from './Board';
 import StatusLabel from './StatusLabel';
 import RestartButton from './RestartButton';
+import NavLink from '../../../lib/components/NavLink';
 
 export default class Game extends React.Component {
   render() {
@@ -25,6 +26,7 @@ export default class Game extends React.Component {
               </div>
             </div>
             <StatusLabel status={this.props.status} />
+            <NavLink name="stats" link="/stats" />
           </Col>
         </Row>
       </Container>

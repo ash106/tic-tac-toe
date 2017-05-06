@@ -1,4 +1,11 @@
 $font-family-base: 'Roboto', sans-serif;
+$master-text-color: #fff;
+$text-color: $master-text-color;
+$link-color: $master-text-color;
+$headings-color: $master-text-color;
+$x-color: #3299BB;
+$o-color: #FF9900;
+$body-bg: #424242;
 
 @import "bootstrap";
 @import "font-awesome";
@@ -22,21 +29,33 @@ html, body, .container, .full-height-component, .row {
   margin-bottom: 10px;
 }
 
+body, .square {
+  background: $body-bg;
+}
+
 .square {
   font-family: 'Quicksand', sans-serif;
-  background: #fff;
   border: 1px solid #999;
+  border-right: none;
+  border-bottom: none;
   float: left;
   font-size: 55px;
   font-weight: 500;
   line-height: 75px;
   height: 75px;
-  margin-right: -1px;
-  margin-top: -1px;
   padding: 0;
   text-align: center;
   width: 75px;
   transition: color 0.5s ease;
+  color: $body-bg;
+}
+
+.no-top-border {
+  border-top: none;
+}
+
+.no-left-border {
+  border-left: none;
 }
 
 .square:focus {
@@ -52,12 +71,12 @@ html, body, .container, .full-height-component, .row {
 
 
 
-.x-label {
-  color: #1f77b4;
+.x-label, .x-box {
+  color: $x-color;
 }
 
-.o-label {
-  color: #ff7f0e;
+.o-label, .o-box {
+  color: $o-color;
 }
 
 .game-wrapper {
@@ -83,6 +102,10 @@ html, body, .container, .full-height-component, .row {
   font-weight: 400;
 }
 
-.red-text {
-  color: #D62728;
+.highlight-text {
+  color: #fff;
+}
+
+.restart-button {
+  color: $master-text-color;
 }

@@ -12,7 +12,7 @@
 * [D3](https://d3js.org/) - Used for the donut chart on stats page
 * [React Motion](https://github.com/chenglou/react-motion) - Used to animate the donut chart updates
 
-## Sample Code
+## ActionCable and React Code
 
 When someone wins a game, a POST request is sent to `games#create`
 
@@ -35,7 +35,7 @@ componentDidUpdate(prevProps, prevState) {
 }
 ```
 
-On successful save, the `create` action broadcasts updated stats to the ActionCable server
+On successful save, the `create` action broadcasts updated stats to the `games` ActionCable channel
 
 ```ruby
 # app/controllers/games_controller.rb
@@ -141,7 +141,7 @@ render() {
 }
 ```
 
-## Development
+## Getting Started
 
 ### Prerequisites
 

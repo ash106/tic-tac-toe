@@ -98,6 +98,8 @@ The `Stats` component passes the new data to the `D3DonutChart`
 Where it is finally rendered using D3 and React Motion
 
 ```jsx
+// client/app/bundles/Stats/components/D3DonutChart.jsx
+
 render() {
   var width = 290,
       height = 290,

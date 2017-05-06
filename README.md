@@ -75,7 +75,7 @@ render() {
 }
 ```
 
-The `Stats` component passes the new data to the `D3DonutChart`
+The `Stats` component passes the new data to the `D3DonutChart` component
 
 ```jsx
 // client/app/bundles/Stats/components/Stats.jsx

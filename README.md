@@ -2,7 +2,7 @@
 
 [Demo](https://sheltered-caverns-30642.herokuapp.com/)
 
-![React Tic Tac Toe gif](http://i.imgur.com/m2ZJmWH.gif)
+![React Tic Tac Toe gif](http://i.imgur.com/rTqy5sh.gif)
 
 ## Built With
 

@@ -105,7 +105,8 @@ render() {
       height = 290,
       radius = Math.min(width, height) / 2;
 
-  var color = d3.scale.category10();
+  var color = d3.scale.ordinal()
+      .range(["#3299BB", "#FF9900"]);
 
   var pie = d3.layout.pie()
       .value(d => d)

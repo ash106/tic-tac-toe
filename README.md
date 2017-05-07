@@ -1,8 +1,8 @@
 # Tic Tac Toe
 
-[Demo](https://sheltered-caverns-30642.herokuapp.com/)
-
 ![React Tic Tac Toe gif](http://i.imgur.com/rTqy5sh.gif)
+
+[Demo](https://sheltered-caverns-30642.herokuapp.com/)
 
 ## Built With
 

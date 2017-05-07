@@ -71,11 +71,11 @@ body, .square {
 
 
 
-.x-label, .x-box {
+.x-label, .x-box, .x-span {
   color: $x-color;
 }
 
-.o-label, .o-box {
+.o-label, .o-box, .o-span {
   color: $o-color;
 }
 
@@ -93,9 +93,13 @@ body, .square {
   margin-bottom: 1rem;
 }
 
-.x-label, .o-label {
+.x-label, .o-label, .x-span, .o-span {
   font-family: 'Quicksand', sans-serif;
   font-weight: 300;
+}
+
+.x-span, .o-span {
+  font-weight: 500;
 }
 
 .chart-label-num {
